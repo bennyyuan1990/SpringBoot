@@ -1,5 +1,11 @@
 package com.benny.springboot.domain;
 
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@ConfigurationProperties(prefix = "user")
+@Component
 public class UserBean {
 
 

@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: prod
+logging:
+  level:
+    com.benny.springboot: debug
+
+
+---
+#开发环境 文档块
+
+spring:
+  profiles: dev
+
+---
+#生产环境 文档块
+spring:
+  profiles: prod
+
+

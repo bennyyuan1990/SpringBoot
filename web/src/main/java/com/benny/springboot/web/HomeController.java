@@ -1,21 +1,30 @@
 package com.benny.springboot.web;
 
 import com.benny.springboot.domain.UserBean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/home")
 public class HomeController {
 
-    @GetMapping("/index")
-    public UserBean index(){
+    @Autowired
+    UserBean userBean;
 
-        UserBean userBean = new UserBean();
-        userBean.setName("姓名1asdfasfd1");
-        userBean.setAge(18);
+    @GetMapping("/index")
+    public UserBean index() {
+        return userBean;
+    }
+
+
+    @PostMapping("post")
+    public UserBean post(@RequestBody UserBean userBean) {
 
         return userBean;
+    }
+
+    @GetMapping("/error")
+    public String error() {
+        throw new RuntimeException("运行期异常");
     }
 }
